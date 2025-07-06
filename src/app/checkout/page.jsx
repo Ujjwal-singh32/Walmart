@@ -154,7 +154,7 @@ export default function AmazonCheckout() {
             </div>
             <div className="bg-white/80 px-6 py-4 rounded-xl text-indigo-900">
               <div className="text-sm font-medium">Subtotal</div>
-              <div className="text-3xl font-bold">₹{calculateTotal().toFixed(2)}</div>
+              <div className="text-3xl font-bold">${calculateTotal().toFixed(2)}</div>
             </div>
           </div>
         </div>
@@ -251,7 +251,7 @@ export default function AmazonCheckout() {
                         Selected Packaging: {summary.packaging?.title}
                       </div>
                       <div className="text-sm text-blue-600">{summary.packaging?.desc}</div>
-                      <div className="text-sm text-blue-500 mt-1">Cost: ₹{summary.packaging?.price}</div>
+                      <div className="text-sm text-blue-500 mt-1">Cost: ${summary.packaging?.price}</div>
                     </div>
                     <Truck className="text-blue-600" />
                   </div>
@@ -294,21 +294,21 @@ export default function AmazonCheckout() {
                     <div className="flex-1">
                       <p className="font-medium text-sm">{item.name}</p>
                       <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
-                      <p className="font-semibold">₹{(item.price.toFixed(2) * item.quantity).toFixed(2)}</p>
+                      <p className="font-semibold">${(item.price.toFixed(2) * item.quantity).toFixed(2)}</p>
                     </div>
                   </div>
                 ))}
                 <div className="pt-4 border-t space-y-1 text-sm">
-                  <div className="flex justify-between">Items: <span>₹{getTotalPrice().toFixed(2)}</span></div>
-                  <div className="flex justify-between">Shipping: <span>₹{summary.shipping.toFixed(2)}</span></div>
-                  <div className="flex justify-between">Packaging: <span>₹{summary.packaging.price}</span></div>
-                  <div className="flex justify-between text-green-700">Discount: <span>- ₹{summary.discount.toFixed(2)}</span></div>
+                  <div className="flex justify-between">Items: <span>${getTotalPrice().toFixed(2)}</span></div>
+                  <div className="flex justify-between">Shipping: <span>${summary.shipping.toFixed(2)}</span></div>
+                  <div className="flex justify-between">Packaging: <span>${summary.packaging.price}</span></div>
+                  <div className="flex justify-between text-green-700">Discount: <span>- ${summary.discount.toFixed(2)}</span></div>
                   {useWallet && walletUsed > 0 && (
-                    <div className="flex justify-between text-blue-700 font-medium">Amazon Pay Used: <span>- ₹{walletUsed}</span></div>
+                    <div className="flex justify-between text-blue-700 font-medium">Amazon Pay Used: <span>- ${walletUsed}</span></div>
                   )}
                   <div className="border-t pt-2 font-bold flex justify-between text-lg text-red-600">
                     <span>Total:</span>
-                    <span>₹{calculateTotal().toFixed(2)}</span>
+                    <span>${calculateTotal().toFixed(2)}</span>
                   </div>
                 </div>
               </div>

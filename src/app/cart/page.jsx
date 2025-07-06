@@ -114,7 +114,7 @@ export default function AmazonCart() {
                       Subtotal ({total})
                     </div>
                     <div className="text-2xl font-bold text-blue-700">
-                      ₹ {getTotalPrice().toFixed(2)}
+                      $ {getTotalPrice().toFixed(2)}
                     </div>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ export default function AmazonCart() {
                   <p className="text-green-600 font-medium ml-7 mb-2">
                     Delivery: 2-3 business days
                   </p>
-                  <p className="text-gray-900 font-medium ml-7">Shipping: ₹{shipping}</p>
+                  <p className="text-gray-900 font-medium ml-7">Shipping: ${shipping}</p>
                 </div>
 
                 {/* Group Order */}
@@ -237,7 +237,7 @@ export default function AmazonCart() {
                         </div>
                       )}
                       <div className="text-sm text-gray-600 mt-1">
-                        {option.price === 0 ? "FREE" : `₹${option.price.toFixed(2)}`}
+                        {option.price === 0 ? "FREE" : `$${option.price.toFixed(2)}`}
                       </div>
                     </div>
                   </div>
@@ -284,11 +284,11 @@ export default function AmazonCart() {
                         </p>
                         <div className="flex items-center gap-2 mb-4">
                           <span className="text-2xl font-bold text-red-600">
-                            ₹{(parseFloat(item.price) * item.quantity).toFixed(2)}
+                            ${(parseFloat(item.price) * item.quantity).toFixed(2)}
                           </span>
                           {item.originalPrice && (
                             <span className="text-lg text-gray-500 line-through">
-                              ₹{parseFloat(item.originalPrice).toFixed(2)}
+                              ${parseFloat(item.originalPrice).toFixed(2)}
                             </span>
                           )}
                         </div>
@@ -343,24 +343,24 @@ export default function AmazonCart() {
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between">
                     <span>Items ({total}):</span>
-                    <span>₹{getTotalPrice().toFixed(2)}</span>
+                    <span>${getTotalPrice().toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Shipping & handling:</span>
-                    <span>₹{shipping} </span>
+                    <span>${shipping} </span>
                   </div>
                   <div className="flex justify-between">
                     <span>Packaging fee:</span>
-                    <span>₹{packagingPrice.toFixed(2)}</span>
+                    <span>${packagingPrice.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between text-green-600">
                     <span>Discount:</span>
-                    <span>- ₹{discount.toFixed(2)}</span>
+                    <span>- ${discount.toFixed(2)}</span>
                   </div>
                   <hr />
                   <div className="flex justify-between text-xl font-bold">
                     <span>Order total:</span>
-                    <span>₹{getOrderTotal()}</span>
+                    <span>${getOrderTotal()}</span>
                   </div>
                 </div>
 

@@ -80,7 +80,7 @@ const OrdersPage = () => {
                       {new Date(order.placedAt).toLocaleDateString()}
                     </p>
                     <p className="text-sm text-gray-600">
-                      <span className="font-semibold">TOTAL:</span> ₹{order.totalAmount.toFixed(2)}
+                      <span className="font-semibold">TOTAL:</span> ${order.totalAmount.toFixed(2)}
                     </p>
                     <p className="text-sm text-gray-600">
                       <span className="font-semibold">SHIP TO:</span>{" "}
@@ -124,7 +124,7 @@ const OrdersPage = () => {
                           {item.product?.name || "Product Name"}
                         </h2>
                         <p className="text-sm text-gray-600 mb-1">
-                          ₹{item.priceAtPurchase.toFixed(2)} x {item.quantity}
+                          ${item.priceAtPurchase.toFixed(2)} x {item.quantity}
                         </p>
                         <p className="text-sm text-gray-600">
                           {order.orderStatus === "delivered"

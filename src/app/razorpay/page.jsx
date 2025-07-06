@@ -168,7 +168,7 @@ const PaymentPage = () => {
       <div className="relative z-10 bg-white/30 backdrop-blur-lg shadow-2xl p-10 rounded-3xl max-w-md w-full text-center border border-white/30">
         <h2 className="text-3xl font-bold text-white mb-6">Complete Your Payment</h2>
         <p className="mb-6 text-gray-100 font-medium">
-          Pay securely ₹{orderPayload.totalAmount.toFixed(2)}
+          Pay securely ${orderPayload.totalAmount.toFixed(2)}
 
         </p>
 
@@ -181,10 +181,10 @@ const PaymentPage = () => {
             } font-semibold px-8 py-3 rounded-full transition duration-300 transform hover:scale-105 focus:outline-none`}
         >
           {orderPayload.totalAmount === 0
-            ? "Not available for ₹0 Orders"
+            ? "Not available for $0 Orders"
             : loading
               ? "Processing..."
-              : `Pay ₹${orderPayload.totalAmount.toFixed(2)} with Razorpay`}
+              : `Pay $${orderPayload.totalAmount.toFixed(2)} with Razorpay`}
         </button>
 
 

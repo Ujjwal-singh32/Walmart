@@ -67,7 +67,7 @@ const OrderPlacedPage = () => {
               <ul className="space-y-1">
                 {order.items?.map((item, idx) => (
                   <li key={idx} className="text-sm text-gray-800">
-                    Product ID: {item.productId} × {item.quantity} — ₹
+                    Product ID: {item.productId} × {item.quantity} — $
                     {item.priceAtPurchase}
                   </li>
                 ))}
@@ -77,7 +77,7 @@ const OrderPlacedPage = () => {
             {/* Total & Date */}
             <div className="text-sm text-gray-800">
               <p>
-                <span className="font-semibold">Order Total:</span> ₹
+                <span className="font-semibold">Order Total:</span> $
                 {order.totalAmount}
               </p>
               <p>

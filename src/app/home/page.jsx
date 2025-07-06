@@ -53,8 +53,7 @@ export default function HomePage() {
   const [allCategories, setAllCategories] = useState([]);
   const [displayCategories, setDisplayCategories] = useState([]);
   const [visibleCategoryCount, setVisibleCategoryCount] = useState(18); // initial
-  const { homeProducts, loading } = useProduct();
-  // console.log("totalpr", homeProducts);
+  const { homeProducts } = useProduct();
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [dealsProducts, setDealsProducts] = useState([]);
   const [bestSellers, setBestSellers] = useState([]);
