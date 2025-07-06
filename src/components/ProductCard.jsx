@@ -125,7 +125,7 @@ function ProductCard({
 
 
         <div className="flex items-center justify-between mt-4 flex-shrink-0">
-          <p className="text-lg font-bold">₹{price.toFixed(2)}</p>
+          <p className="text-lg font-bold">${price.toFixed(2)}</p>
           <Button
             variant=" "
             className="bg-yellow-500 hover:bg-yellow-600 transition"

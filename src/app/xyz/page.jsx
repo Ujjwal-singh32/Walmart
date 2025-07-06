@@ -48,7 +48,7 @@ export default function ProductList() {
                     className="w-full h-40 object-cover rounded"
                   />
                   <h2 className="mt-2 text-lg font-semibold">{product.name}</h2>
-                  <p className="text-gray-600">₹{product.basePrice}</p>
+                  <p className="text-gray-600">${product.basePrice}</p>
                 </div>
               </Link>
             </div>

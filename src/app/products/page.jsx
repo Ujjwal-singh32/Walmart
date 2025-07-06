@@ -168,7 +168,7 @@ const SearchPageContent = () => {
                         <p className="text-gray-600 text-sm line-clamp-2 h-[38px] mt-1 cursor-pointer" onClick={() => router.push(`/products/${product.productId}`)}>
                           {product.description}
                         </p>
-                        <p className="text-black font-bold text-lg mt-2">₹{product.basePrice}</p>
+                        <p className="text-black font-bold text-lg mt-2">${product.basePrice}</p>
 
                         {/* Green Points + Sustainable Score */}
 

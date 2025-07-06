@@ -160,7 +160,7 @@ export default function Home() {
                         <div className="p-4 space-y-2">
                           <h3 className="text-green-800 font-semibold truncate">{product.name}</h3>
                           <p className="text-gray-500 text-xs">Eco Brand</p>
-                          <p className="text-green-700 font-bold">₹{price}</p>
+                          <p className="text-green-700 font-bold">${price}</p>
 
                           <div className="mt-2 space-y-2">
                             <div className="flex justify-between text-xs text-gray-600">

@@ -309,7 +309,7 @@ const  OrderTrackingfunc = () =>{
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between font-bold text-base pt-2 border-t border-gray-200">
                     <span className="text-gray-900">Grand Total:</span>
-                    <span className="text-gray-900">₹{((orderData.totalAmount || 0)).toFixed(2)}</span>
+                    <span className="text-gray-900">${((orderData.totalAmount || 0)).toFixed(2)}</span>
                   </div>
                 </div>
               </div>
@@ -358,7 +358,7 @@ const  OrderTrackingfunc = () =>{
             <div className="bg-green-100 border border-green-300 text-green-900 p-4 rounded-md mb-6 shadow-sm">
               <h3 className="font-semibold text-lg mb-1">🎉 Congrats!</h3>
               <p>
-                You have saved <span className="font-bold text-green-700">₹{Number(orderData.discount).toFixed(2)}</span> on this group order.
+                You have saved <span className="font-bold text-green-700">${Number(orderData.discount).toFixed(2)}</span> on this group order.
                 It has been added to your Amazon Pay Wallet.
               </p>
             </div>
