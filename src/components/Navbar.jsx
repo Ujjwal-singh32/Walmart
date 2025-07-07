@@ -45,77 +45,97 @@ function Navbar() {
   const { user } = useUser();
 
   useEffect(() => {
-  const fetchUserLocation = async () => {
-    try {
-      const res = await fetch("/api/users", {
-        headers: {
-          "x-user-id": user?.id,
-        },
-      });
+    const fetchUserLocation = async () => {
+      try {
+        const res = await fetch("/api/users", {
+          headers: {
+            "x-user-id": user?.id,
+          },
+        });
 
-      const data = await res.json();
-      console.log("User Location Data:", JSON.stringify(data));
+        const data = await res.json();
+        console.log("User Location Data:", JSON.stringify(data));
 
-      const addressArray = data?.user?.address;
-      if (Array.isArray(addressArray) && addressArray.length > 0) {
-        const primaryAddress = addressArray[0];
-        setCity(primaryAddress.city || "Jamshedpur");
-        setStateName(primaryAddress.state || "Jharkhand");
+        const addressArray = data?.user?.address;
+        if (Array.isArray(addressArray) && addressArray.length > 0) {
+          const primaryAddress = addressArray[0];
+          setCity(primaryAddress.city || "Jamshedpur");
+          setStateName(primaryAddress.state || "Jharkhand");
+        }
+      } catch (err) {
+        console.error("Error fetching user location:", err);
       }
-    } catch (err) {
-      console.error("Error fetching user location:", err);
+    };
+
+    if (user?.id) {
+      fetchUserLocation();
     }
-  };
-
-  if (user?.id) {
-    fetchUserLocation();
-  }
-}, [user]);
+  }, [user]);
 
 
-  
-  
+
+
   return (
     <div className="sticky top-0 z-50">
       {/* Top nav */}
-      <div className="flex items-center bg-[#131921] px-4 py-1 h-[60px] justify-between">
+      <div className="flex items-center bg-[#2538e6] px-4 py-1 h-[80px] justify-between">
+
         {/* Logo */}
-        <div className="flex items-center sm:flex-grow-0">
+        <div
+          className="flex items-center sm:flex-grow-0  px-4 py-3 rounded-full cursor-pointer
+             hover:bg-[#012169] transition duration-200"
+          onClick={() => router.push("/")}
+        >
           <Image
-            onClick={() => router.push("/")}
             alt="Logo"
-            src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-            width={90}
-            height={30}
-            className="cursor-pointer object-contain mt-2"
+            src="https://i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg"
+            width={40}
+            height={10}
+            className="object-contain"
           />
         </div>
 
         {/* Delivery Location and Search Bar (hidden on mobile, shown on sm and up) */}
-        <div className="hidden md:flex flex-grow items-center">
-          <div className="text-white ml-8 flex flex-col cursor-pointer">
-            <p className="text-xs">Deliver to {city}</p>
-            <p className="font-bold text-sm">{stateName}</p>
+        <div className="hidden md:flex items-center flex-grow gap-4 mx-6">
+          {/* Pickup or Delivery Button */}
+          <div
+            className="flex items-center bg-[#210074] text-white py-2 px-4 rounded-full min-w-[200px]
+             hover:bg-[#0b2e84] transition duration-200 cursor-pointer group"
+          >
+            <Image
+              src="https://i5.walmartimages.com/dfw/4ff9c6c9-ad46/k2-_0a671c38-d307-447c-835e-7904ab143c26.v1.png"
+              alt="Pickup or Delivery"
+              width={24}
+              height={24}
+              className="rounded-full"
+            />
+            <p className="ml-2 font-semibold text-sm whitespace-nowrap group-hover:text-white">
+              Pickup or delivery?
+            </p>
           </div>
 
 
-          <div className="relative flex-grow mx-4">
-            <form onSubmit={handleSearch} className="relative flex items-center h-9 mx-4 rounded-md flex-grow bg-yellow-500">
+          {/* Search Bar */}
+          <div className="flex-grow">
+            <form
+              onSubmit={handleSearch}
+              className="flex items-center bg-white rounded-full px-3 h-10"
+            >
               <input
                 type="text"
-                placeholder="Search"
+                placeholder="Search Walmart"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="bg-white h-full p-2 flex-grow flex-shrink rounded-l-md focus:outline-none px-4 text-black"
+                className="flex-grow bg-transparent text-black placeholder-gray-500 px-4 py-2 focus:outline-none rounded-l-full"
               />
-              <button type="submit">
-                <MagnifyingGlassIcon className="h-10 p-2 text-black" />
+              <button
+                type="submit"
+                className="bg-[#002d72] rounded-full p-2 ml-2 flex items-center justify-center"
+              >
+                <MagnifyingGlassIcon className="h-5 w-5 text-white" />
               </button>
             </form>
-
-
           </div>
-
         </div>
 
         {/* Right Nav items (including mobile menu button for small screens) */}
@@ -131,23 +151,39 @@ function Navbar() {
               <Bars3Icon className="h-6 w-6" />
             )}
           </button>
-          <p className="cursor-pointer text-green-400 font-semibold flex items-center gap-1  text-xl"
-            onClick={() => router.push("/green-kart")}>
-            <LeafIcon className="h-9 w-7" />
-            GreenKart
-          </p>
+          <div
+            onClick={() => router.push("/green-kart")}
+            className="cursor-pointer flex items-center gap-2 px-5 py-3 rounded-full transition duration-200
+             hover:bg-[#012169] group"
+          >
+            <LeafIcon className="h-8 w-8 text-[#32cd32] group-hover:text-green-500" />
+            <span className="text-[#11ff3c] font-semibold text-base group-hover:text-green-500">
+              GreenKart
+            </span>
+          </div>
+
+
+          <div
+            className="hidden sm:flex flex-col items-center justify-center px-5 py-3 rounded-full transition duration-200 cursor-pointer
+             bg-transparent hover:bg-[#012169] hover:text-white group font-extrabold"
+            onClick={() => router.push("/orders")}
+          >
+            <p className="text-sm leading-tight group-hover:text-white">Reorder</p>
+            <p className="text-sm font-extrabold leading-tight group-hover:text-white">My Items</p>
+          </div>
 
           <SignedIn>
             <div className="cursor-pointer flex items-center space-x-2">
               <UserButton afterSignOutUrl="/home" />
               {user && (
-                <button
+                <div
                   onClick={() => router.push("/profile")}
-                  className="hidden sm:inline font-extrabold md:text-sm text-white hover:underline"
+                  className="hidden sm:flex flex-col items-center justify-center px-5 py-3 rounded-full transition duration-200
+                   bg-transparent hover:bg-[#012169] hover:text-white group font-extrabold"
                 >
-                  <div className="text-center">Hi</div>
-                  <div className="text-center">{user.firstName}</div>
-                </button>
+                  <p className="text-sm leading-tight group-hover:text-white">Hi</p>
+                  <p className="text-sm font-extrabold leading-tight group-hover:text-white">{user.firstName}</p>
+                </div>
               )}
             </div>
           </SignedIn>
@@ -164,15 +200,8 @@ function Navbar() {
           </SignedOut>
 
           <div
-            className="hidden sm:block cursor-pointer"
-            onClick={() => router.push("/orders")}
-          >
-            <p>Returns</p>
-            <p className="font-extrabold md:text-sm">& Orders</p>
-          </div>
-
-          <div
-            className="relative flex items-center cursor-pointer"
+            className="relative flex items-center justify-center px-4 py-3 rounded-full transition duration-200
+             hover:bg-[#012169] cursor-pointer group"
             onClick={() => {
               if (total === 0) {
                 toast.error("Add items in Cart", {
@@ -272,23 +301,6 @@ function Navbar() {
         </div>
       )}
 
-      {/* Bottom nav */}
-      <div className="bg-[#232F3E] text-white text-sm w-full px-6 py-2">
-        <div className="flex flex-wrap justify-between items-center max-w-7xl mx-auto gap-x-6 gap-y-2">
-          <p className="flex items-center cursor-pointer">
-            <Bars3Icon className="h-6 mr-1" /> All
-          </p>
-          <p className="cursor-pointer">Today's Deals</p>
-          <p className="cursor-pointer hidden lg:inline-flex">Registry</p>
-          <p className="cursor-pointer hidden lg:inline-flex">
-            Customer Service
-          </p>
-          <p className="cursor-pointer hidden lg:inline-flex">Gift Cards</p>
-          <p className="cursor-pointer hidden lg:inline-flex">Sell</p>
-          <p className="cursor-pointer hidden lg:inline-flex">Amazon Pay</p>
-          <p className="cursor-pointer hidden lg:inline-flex">Best Sellers</p>
-        </div>
-      </div>
     </div>
   );
 }
