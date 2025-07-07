@@ -1,7 +1,75 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ShoppingBag, Star, Gift, Zap } from "lucide-react";
+
+// Walmart Spark SVG Icon
+function WalmartSpark({ className = "", size = 64 }) {
+  return (
+    <svg
+      className={className}
+      width={size}
+      height={size}
+      viewBox="0 0 64 64"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ filter: "drop-shadow(0 0 10px #ffc22088)" }}
+    >
+      <g>
+        {/* No white circle, just the spark */}
+        <g>
+          <path
+            d="M32 13v15"
+            stroke="#fff"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M32 36v15"
+            stroke="#fff"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M51 32h-15"
+            stroke="#fff"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M28 32H13"
+            stroke="#fff"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M45.25 18.75l-10.6 10.6"
+            stroke="#ffc220"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M18.75 45.25l10.6-10.6"
+            stroke="#ffc220"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M45.25 45.25l-10.6-10.6"
+            stroke="#ffc220"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+          <path
+            d="M18.75 18.75l10.6 10.6"
+            stroke="#ffc220"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+        </g>
+      </g>
+    </svg>
+  );
+}
 
 export default function AmazonWelcomeAnimation() {
   const [isVisible, setIsVisible] = useState(true);
@@ -14,7 +82,7 @@ export default function AmazonWelcomeAnimation() {
       id: i,
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
-      delay: `${i * 150}ms`
+      delay: `${i * 150}ms`,
     }));
     setParticles(generated);
 
@@ -34,19 +102,21 @@ export default function AmazonWelcomeAnimation() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen z-50 flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden p-4">
+    <div className="fixed top-0 left-0 w-screen h-screen z-50 flex items-center justify-center bg-[#0071ce] overflow-hidden p-4">
       {/* Background particles */}
       <div className="absolute inset-0">
         {particles.map(({ id, left, top, delay }) => (
           <div
             key={id}
-            className={`absolute w-2 h-2 bg-gradient-to-r from-amber-400 to-orange-500 rounded-full transform transition-all duration-3000 shadow-lg shadow-orange-400/30 ${
-              animationPhase >= 1 ? "animate-pulse scale-100 opacity-100" : "scale-0 opacity-0"
+            className={`absolute w-2 h-2 rounded-full bg-[#ffc220] opacity-70 shadow-lg shadow-[#ffc220]/30 transition-all duration-3000 ${
+              animationPhase >= 1
+                ? "animate-pulse scale-100 opacity-100"
+                : "scale-0 opacity-0"
             }`}
             style={{
               left,
               top,
-              animationDelay: delay
+              animationDelay: delay,
             }}
           />
         ))}
@@ -54,19 +124,20 @@ export default function AmazonWelcomeAnimation() {
 
       {/* Main content */}
       <div className="relative z-10 text-center max-w-screen-md">
-        {/* Amazon logo */}
+        {/* Walmart Spark logo */}
         <div
           className={`transform transition-all duration-1000 ${
-            animationPhase >= 0 ? "translate-y-0 opacity-100 scale-100" : "translate-y-12 opacity-0 scale-75"
+            animationPhase >= 0
+              ? "translate-y-0 opacity-100 scale-100"
+              : "translate-y-12 opacity-0 scale-75"
           }`}
         >
           <div className="flex items-center justify-center mb-6">
             <div className="relative">
-              <ShoppingBag className="w-12 h-12 sm:w-16 sm:h-16 text-orange-500 mr-3 animate-bounce drop-shadow-xl" />
-              <div className="absolute inset-0 w-full h-full bg-orange-400/20 blur-xl animate-pulse"></div>
+              <WalmartSpark className="w-20 h-20 sm:w-24 sm:h-24 mr-3" />
             </div>
-            <h1 className="text-4xl sm:text-6xl font-black bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-600 bg-clip-text text-transparent tracking-tight drop-shadow-lg">
-              amazon
+            <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight drop-shadow-[0_2px_8px_#0071ce99]">
+              Walmart
             </h1>
           </div>
         </div>
@@ -74,26 +145,51 @@ export default function AmazonWelcomeAnimation() {
         {/* Welcome text */}
         <div
           className={`transform transition-all duration-1000 delay-500 ${
-            animationPhase >= 1 ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            animationPhase >= 1
+              ? "translate-y-0 opacity-100"
+              : "translate-y-8 opacity-0"
           }`}
         >
-          <h2 className="text-xl sm:text-3xl font-bold text-white mb-4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full px-6 py-2 sm:px-8 sm:py-3 shadow-2xl shadow-orange-500/40">
-            Welcome to Your World of Shopping
-          </h2>
-          <p className="text-base sm:text-xl text-gray-700 font-semibold drop-shadow-sm">
-            Discover millions of products at unbeatable prices
-          </p>
+          <div className="bg-white border-4 border-[#0071ce] rounded-2xl px-8 py-6 shadow-xl inline-block">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#0071ce] mb-2">
+              Welcome to Walmart
+            </h2>
+            <p className="text-base sm:text-xl text-[#00296b] font-semibold">
+              Save more. Live better. Shop millions of products at unbeatable
+              prices.
+            </p>
+          </div>
         </div>
 
         {/* Feature icons */}
         <div
           className={`flex flex-wrap justify-center gap-8 mt-8 transform transition-all duration-1000 delay-1000 ${
-            animationPhase >= 2 ? "translate-y-0 opacity-100 scale-100" : "translate-y-8 opacity-0 scale-75"
+            animationPhase >= 2
+              ? "translate-y-0 opacity-100 scale-100"
+              : "translate-y-8 opacity-0 scale-75"
           }`}
         >
-          <FeatureIcon icon={Star} label="Premium Quality" />
-          <FeatureIcon icon={Zap} label="Fast Delivery" delay="0.5s" />
-          <FeatureIcon icon={Gift} label="Great Deals" delay="1s" />
+          <FeatureIcon
+            iconType="star"
+            label="Everyday Low Prices"
+            color="#0071ce"
+            bg="#ffc220"
+          />
+          <FeatureIcon
+            iconType="zap"
+            label="Fast Delivery"
+            color="#ffc220"
+            bg="#0071ce"
+            delay="0.5s"
+          />
+          <FeatureIcon
+            iconType="gift"
+            label="Walmart+ Benefits"
+            color="#0071ce"
+            bg="#fff"
+            border="#ffc220"
+            delay="1s"
+          />
         </div>
 
         {/* Loading Bar */}
@@ -102,14 +198,14 @@ export default function AmazonWelcomeAnimation() {
             animationPhase >= 3 ? "opacity-100 scale-100" : "opacity-0 scale-75"
           }`}
         >
-          <div className="w-64 h-2 bg-gray-200 rounded-full mx-auto overflow-hidden border border-orange-200">
+          <div className="w-64 h-2 bg-white rounded-full mx-auto overflow-hidden border-2 border-[#ffc220]">
             <div
-              className="h-full bg-gradient-to-r from-amber-400 via-orange-500 to-red-500 rounded-full animate-pulse shadow-lg shadow-orange-400/40"
-              style={{ width: "100%", animation: "slideIn 1.5s ease-out forwards" }}
+              className="h-full bg-[#0071ce] rounded-full animate-slideIn"
+              style={{ width: "100%" }}
             />
           </div>
-          <p className="text-gray-600 mt-4 font-semibold drop-shadow-sm">
-            Loading your shopping experience...
+          <p className="text-[#0071ce] mt-4 font-semibold">
+            Loading your Walmart experience...
           </p>
         </div>
       </div>
@@ -126,21 +222,88 @@ export default function AmazonWelcomeAnimation() {
             width: 100%;
           }
         }
-        .animate-bounce {
-          animation: bounce 2s infinite;
+        .animate-slideIn {
+          animation: slideIn 1.5s ease-out forwards;
         }
-        @keyframes bounce {
-          0%, 20%, 53%, 80%, 100% {
-            transform: translate3d(0, 0, 0);
+      `}</style>
+    </div>
+  );
+}
+
+function FeatureIcon({ iconType, label, color, bg, border, delay }) {
+  let Icon;
+  if (iconType === "star") {
+    Icon = (props) => (
+      <svg
+        {...props}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={color}
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+          fill={color}
+        />
+      </svg>
+    );
+  } else if (iconType === "zap") {
+    Icon = (props) => (
+      <svg
+        {...props}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={color}
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill={color} />
+      </svg>
+    );
+  } else if (iconType === "gift") {
+    Icon = (props) => (
+      <svg
+        {...props}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke={color}
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="2" y="7" width="20" height="14" rx="2" fill={color} />
+        <path d="M12 7V21" stroke="#0071ce" strokeWidth="2" />
+        <path d="M2 11h20" stroke="#0071ce" strokeWidth="2" />
+      </svg>
+    );
+  }
+  return (
+    <div className="flex flex-col items-center">
+      <div
+        className="w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center shadow-xl"
+        style={{
+          background: bg,
+          border: border ? `2.5px solid ${border}` : undefined,
+          borderRadius: "9999px",
+          animation: delay ? `pulse 2s infinite ${delay}` : undefined,
+        }}
+      >
+        <Icon className="w-7 h-7 sm:w-9 sm:h-9" />
+      </div>
+      <span className="text-[#0071ce] font-bold mt-2 text-sm sm:text-base">
+        {label}
+      </span>
+      <style jsx>{`
+        @keyframes pulse {
+          0%,
+          100% {
+            box-shadow: 0 0 0 0 ${bg}44;
           }
-          40%, 43% {
-            transform: translate3d(0, -8px, 0);
-          }
-          70% {
-            transform: translate3d(0, -4px, 0);
-          }
-          90% {
-            transform: translate3d(0, -2px, 0);
+          50% {
+            box-shadow: 0 0 0 8px ${bg}22;
           }
         }
       `}</style>
@@ -148,28 +311,14 @@ export default function AmazonWelcomeAnimation() {
   );
 }
 
-function FeatureIcon({ icon: Icon, label, delay }) {
-  return (
-    <div className="flex flex-col items-center">
-      <div
-        className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center animate-pulse shadow-xl shadow-orange-400/50"
-        style={{ animationDelay: delay }}
-      >
-        <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white drop-shadow-lg" />
-      </div>
-      <span className="text-orange-600 font-bold mt-2 text-sm sm:text-base drop-shadow-sm">{label}</span>
-    </div>
-  );
-}
-
 function DecorativeBlur() {
   return (
     <>
-      <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-yellow-400/20 to-orange-500/20 rounded-full blur-xl animate-ping" />
-      <div className="absolute bottom-10 right-10 w-24 h-24 bg-gradient-to-r from-orange-400/20 to-red-500/20 rounded-full blur-xl animate-ping" style={{ animationDelay: "1s" }} />
-      <div className="absolute top-1/2 left-20 w-16 h-16 bg-gradient-to-r from-amber-400/20 to-yellow-500/20 rounded-full blur-xl animate-ping" style={{ animationDelay: "2s" }} />
-      <div className="absolute top-20 right-32 w-20 h-20 bg-gradient-to-r from-yellow-300/20 to-orange-400/20 rounded-full blur-xl animate-ping" style={{ animationDelay: "0.5s" }} />
-      <div className="absolute bottom-32 left-32 w-28 h-28 bg-gradient-to-r from-orange-500/20 to-amber-600/20 rounded-full blur-xl animate-ping" style={{ animationDelay: "1.5s" }} />
+      <div className="absolute top-10 left-10 w-32 h-32 bg-[#ffc220]/20 rounded-full blur-2xl" />
+      <div className="absolute bottom-10 right-10 w-24 h-24 bg-[#0071ce]/20 rounded-full blur-2xl" />
+      <div className="absolute top-1/2 left-20 w-16 h-16 bg-[#ffc220]/20 rounded-full blur-2xl" />
+      <div className="absolute top-20 right-32 w-20 h-20 bg-[#0071ce]/20 rounded-full blur-2xl" />
+      <div className="absolute bottom-32 left-32 w-28 h-28 bg-[#ffc220]/20 rounded-full blur-2xl" />
     </>
   );
 }
