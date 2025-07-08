@@ -59,6 +59,17 @@ export default function HomePage() {
   const [teaProducts, setTeaProducts] = useState([]);
   const [homeDecorProducts, setHomeDecorProducts] = useState([]);
 
+  // Hardcoded Diet and Nutrition products with real productIds from DB
+  const dietNutritionProductIds = [
+    "be8dea06-bf4a-40f6-8bac-9858edcd7018",
+    "fc099b3e-eb14-4968-9d4a-c0137aea5190",
+    "a0d8699c-94a9-496c-a7f6-f7d754faaa09",
+    "c8b1c565-c48d-46a0-b9b5-6479bcd23e17",
+    "38e75578-fe5f-4f55-95ce-e3e1803012af",
+    "d6f8c874-33e1-40cb-bbf7-b9e81ca52664",
+  ];
+  const [dietProducts, setDietProducts] = useState([]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCountdown((prev) => {
@@ -103,24 +114,32 @@ export default function HomePage() {
           })
       );
       setTeaProducts(filteredTea);
-      const filteredDecor = homeProducts.filter(
-        (p) =>
-          Array.isArray(p.tags) &&
-          p.tags.some((tag) => {
-            const normalized = tag.toLowerCase().replace(/[^a-z]/g, "");
-            return (
-              normalized.includes("protein") ||
-              normalized.includes("nutrition") ||
-              normalized.includes("diet")
-            );
-          })
-      );
-      setHomeDecorProducts(filteredDecor);
     } else {
       setTeaProducts([]);
-      setHomeDecorProducts([]);
     }
   }, [homeProducts]);
+
+  useEffect(() => {
+    // Fetch details for the 6 hardcoded productIds
+    const fetchDietProducts = async () => {
+      try {
+        const res = await fetch("/api/products/detailsByIds", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ productIds: dietNutritionProductIds }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          setDietProducts(data.products);
+        } else {
+          setDietProducts([]);
+        }
+      } catch (err) {
+        setDietProducts([]);
+      }
+    };
+    fetchDietProducts();
+  }, []);
 
   useEffect(() => {
     setIsClient(true);
@@ -478,12 +497,7 @@ export default function HomePage() {
         <section className="w-full flex flex-col md:flex-row gap-8 my-12 max-w-full md:max-w-[1470px] mx-auto px-2 md:px-0">
           <div className="flex-1 overflow-x-auto order-2 md:order-1">
             <div className="flex gap-6 pb-2">
-              {homeDecorProducts.length === 0 && (
-                <div className="text-gray-500 text-lg p-8">
-                  Diet and Nutrition products loading...
-                </div>
-              )}
-              {homeDecorProducts.map((product) => (
+              {dietProducts.map((product) => (
                 <div
                   key={product.productId}
                   className="min-w-[260px] max-w-[260px] bg-white rounded-2xl shadow-lg p-5 flex flex-col cursor-pointer hover:shadow-2xl transition border border-[#e6f1fb] relative"
@@ -497,7 +511,7 @@ export default function HomePage() {
                   )}
                   <img
                     src={
-                      product.images[0] ||
+                      product.images?.[0] ||
                       "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80"
                     }
                     alt={product.name}
@@ -572,7 +586,12 @@ export default function HomePage() {
             {allCategories.slice(0, 15).map((cat) => (
               <div
                 key={cat.title}
-                className="flex flex-col items-center min-w-[120px]"
+                className="flex flex-col items-center min-w-[120px] cursor-pointer"
+                onClick={() => router.push(cat.link)}
+                tabIndex={0}
+                role="button"
+                onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') router.push(cat.link); }}
+                style={{ outline: 'none' }}
               >
                 <Image
                   src={cat.image}
