@@ -127,12 +127,13 @@ function ProductCard({
         <div className="flex items-center justify-between mt-4 flex-shrink-0">
           <p className="text-lg font-bold">${price.toFixed(2)}</p>
           <Button
-            variant=" "
-            className="bg-yellow-500 hover:bg-yellow-600 transition"
+            variant="ghost"
+            className="bg-[#0071dc] hover:bg-[#0010bf] text-white font-bold px-6 py-3 rounded-full transition-colors duration-200"
             onClick={handleAddToCart}
           >
-            Add to Cart
+            Add to cart
           </Button>
+
         </div>
       </CardContent>
     </Card>

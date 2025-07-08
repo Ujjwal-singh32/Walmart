@@ -196,7 +196,7 @@ export default function Home() {
                             </button>
                             <button
                               onClick={() => handleAddToCart(product)}
-                              className="flex-1 border border-pink-600 text-black text-sm py-1 rounded-md hover:bg-pink-700 hover:text-white transition cursor-pointer"
+                              className="flex-1 border border-blue-600 text-black text-sm py-1 rounded-md hover:bg-[#0b2e84] hover:text-white transition cursor-pointer"
                             >
                               🛒 Add
                             </button>

@@ -298,18 +298,20 @@ const ProductDetailsPage = () => {
             </div>
 
             <button
-              className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-md w-full sm:w-auto"
+              className="bg-[#0071dc] hover:bg-[#0010bf] text-white font-bold py-3 px-6 rounded-full w-full sm:w-auto transition-colors duration-200"
               onClick={() => handleAddToCart(product)}
             >
               Add to Cart
             </button>
+
+
           </div>
         </div>
 
         {/* Similar Products */}
         {isGreenLoading ? (
           <LoadingSpinner />
-        ) :greenOptions.length > 0 ? (
+        ) : greenOptions.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
             {greenOptions.map((item) => {
               const score = item.sustainableScore || 0;
@@ -380,18 +382,19 @@ const ProductDetailsPage = () => {
 
                     {/* Add to Cart Button */}
                     <button
-                      className="mt-4 w-full bg-yellow-400 hover:bg-yellow-500 text-black text-sm font-semibold py-2 rounded-full"
+                      className="mt-4 w-full bg-[#0071dc] hover:bg-[#0010bf] text-white text-sm font-bold py-3 rounded-full transition-colors duration-200"
                       onClick={() => handleAddToCart(item)}
                     >
                       Add to Cart
                     </button>
+
                   </div>
                 </div>
               );
             })}
-          </div>):(
-  <p className="text-center text-gray-500 mt-6">No similar products found.</p>
-)}
+          </div>) : (
+          <p className="text-center text-gray-500 mt-6">No similar products found.</p>
+        )}
         {/* Customer Review */}
         <div className="max-w-7xl mx-auto p-4 sm:p-6 flex flex-col md:flex-row gap-6">
           {/* Graph Section */}

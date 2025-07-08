@@ -7,7 +7,7 @@ function GreenFooter() {
     <div className="bg-green-600 text-white">
       {/* Back to top button */}
       <div
-        className="bg-green-600 hover:bg-pink-400 text-center py-3 cursor-pointer"
+        className="bg-green-600 hover:bg-[#0b2e84] text-center py-3 cursor-pointer"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       >
         <p>Back to top</p>

@@ -270,11 +270,12 @@ const ProductDetailsPage = () => {
                         </div>
 
                         <button
-                            className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-md w-full sm:w-auto"
+                            className="bg-[#0071dc] hover:bg-[#0010bf] text-white font-bold py-3 px-6 rounded-full w-full sm:w-auto transition-colors duration-200"
                             onClick={() => handleAddToCart(product)}
                         >
                             Add to Cart
                         </button>
+
                     </div>
                 </div>
 
@@ -357,11 +358,12 @@ const ProductDetailsPage = () => {
 
                                     {/* Add to Cart Button */}
                                     <button
-                                        className="mt-4 w-full bg-yellow-400 hover:bg-yellow-500 text-black text-sm font-semibold py-2 rounded-full"
+                                        className="mt-4 w-full bg-[#0071dc] hover:bg-[#0010bf] text-white text-sm font-bold py-3 rounded-full transition-colors duration-200"
                                         onClick={() => handleAddToCart(item)}
                                     >
                                         Add to Cart
                                     </button>
+
                                 </div>
                             </div>
                         );

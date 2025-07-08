@@ -95,22 +95,35 @@ export default function GreenNavbar() {
     }
 
     return (
-        <nav className="sticky top-0 z-50 bg-green-600 text-white px-4 py-2 flex items-center justify-between flex-wrap">
+        <nav className="sticky top-0 z-50 bg-green-600 text-white px-6 py-4 h-[80px] flex items-center justify-between flex-wrap">
             {/* Left: Logo */}
             <div className="flex items-center space-x-2 text-xl font-bold">
                 <Image
                     onClick={() => router.push("/")}
                     alt="Logo"
-                    src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
-                    width={90}
-                    height={30}
-                    className="cursor-pointer object-contain mt-2"
+                    src="https://i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg"
+                    width={40}
+                    height={40}
+                    className="cursor-pointer object-contain"
                 />
+
                 {/* <span> Greenkart</span> */}
-                <div className="text-white ml-3 flex flex-col cursor-pointer">
-                    <p className="text-xs">Deliver to {city}</p>
-                    <p className="font-bold text-sm">{stateName}</p>
+                <div
+                    className="flex items-center bg-[#210074] text-white py-2 px-4 rounded-full min-w-[200px]
+             hover:bg-[#0b2e84] transition duration-200 cursor-pointer group ml-3"
+                >
+                    <Image
+                        src="https://i5.walmartimages.com/dfw/4ff9c6c9-ad46/k2-_0a671c38-d307-447c-835e-7904ab143c26.v1.png"
+                        alt="Pickup or Delivery"
+                        width={24}
+                        height={24}
+                        className="rounded-full"
+                    />
+                    <p className="ml-2 font-semibold text-sm whitespace-nowrap group-hover:text-white">
+                        Pickup or delivery?
+                    </p>
                 </div>
+
             </div>
 
             {/* Middle: Search bar */}
@@ -127,7 +140,7 @@ export default function GreenNavbar() {
 
 
                     <button type="submit">
-                        <MagnifyingGlassIcon className="h-9 p-2 bg-pink-500" />
+                        <MagnifyingGlassIcon className="h-9 p-2 bg-[#0b2e84]" />
                     </button>
                 </form>
                 {suggestions.length > 0 && (
@@ -171,10 +184,10 @@ export default function GreenNavbar() {
                 </SignedIn>
                 <div
                     className="hidden sm:block cursor-pointer"
-                    onClick={() => router.push("/orders")}
+                    onClick={() => router.push("/orders")}  
                 >
-                    <p>Returns</p>
-                    <p className="font-extrabold md:text-sm">& Orders</p>
+                    <p>Reorder</p>
+                    <p className="font-extrabold md:text-sm">My Items</p>
                 </div>
                 <div
                     className="relative flex items-center cursor-pointer"
@@ -182,7 +195,7 @@ export default function GreenNavbar() {
                 >
                     <div className="relative">
                         <ShoppingCartIcon className="h-10 w-10 text-white" />
-                        <span className="absolute top-[4.5px] right-2 h-4 w-4 bg-pink-500 rounded-full text-white text-[10px] font-bold flex items-center justify-center shadow-sm">
+                        <span className="absolute top-[4.5px] right-2 h-4 w-4 bg-[#0b2e84] rounded-full text-white text-[10px] font-bold flex items-center justify-center shadow-sm">
                             {total}
                         </span>
                     </div>
@@ -190,7 +203,7 @@ export default function GreenNavbar() {
               Cart
             </p> */}
                 </div>
-                <p className="cursor-pointer text-white font-semibold flex items-center gap-1  text-xl"
+                <p className="cursor-pointer text-yellow-500 font-semibold flex items-center gap-1  text-xl"
                     onClick={() => router.push("/green-kart")}>
                     <LeafIcon className="h-9 w-7" />
                     GreenKart

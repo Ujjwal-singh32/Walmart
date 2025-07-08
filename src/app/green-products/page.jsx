@@ -2,7 +2,7 @@
 
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import React, { useEffect, useState ,Suspense } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useCart } from "@/context/cartContext";
 import { useProduct } from "@/context/ProductContext";
 import GreenNavbar from "@/components/GreenNavbar";
@@ -10,7 +10,7 @@ import GreenFooter from "@/components/GreenFooter";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import axios from "axios";
 
-const SearchPageContent  = () => {
+const SearchPageContent = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
     const { organicProducts: totalProducts, loading } = useProduct();
@@ -71,16 +71,16 @@ const SearchPageContent  = () => {
     // const sortedResults = sortResults(results);
     const sortedResults = (results);
     if ((loading || (isFetching && results.length === 0)) && query) {
-    return (
-      <>
-        <GreenNavbar />
-        <div className="min-h-screen flex items-center justify-center bg-green-100">
-          <LoadingSpinner />
-        </div>
-        <GreenFooter />
-      </>
-    );
-  }
+        return (
+            <>
+                <GreenNavbar />
+                <div className="min-h-screen flex items-center justify-center bg-green-100">
+                    <LoadingSpinner />
+                </div>
+                <GreenFooter />
+            </>
+        );
+    }
 
     return (
         <>
@@ -148,8 +148,8 @@ const SearchPageContent  = () => {
                                             </div>
 
                                             <div className="mt-3">
-                                                <h2 className="text-md font-semibold line-clamp-2 h-[40px] cursor-pointer"onClick={() => router.push(`/green-products/${product.productId}`)}>{product.name}</h2>
-                                                <p className="text-gray-600 text-sm line-clamp-2 h-[38px] mt-1 cursor-pointer"onClick={() => router.push(`/green-products/${product.productId}`)}>
+                                                <h2 className="text-md font-semibold line-clamp-2 h-[40px] cursor-pointer" onClick={() => router.push(`/green-products/${product.productId}`)}>{product.name}</h2>
+                                                <p className="text-gray-600 text-sm line-clamp-2 h-[38px] mt-1 cursor-pointer" onClick={() => router.push(`/green-products/${product.productId}`)}>
                                                     {product.description}
                                                 </p>
                                                 <p className="text-black font-bold text-lg mt-2">${product.basePrice.toFixed(2)}</p>
@@ -182,7 +182,7 @@ const SearchPageContent  = () => {
                                                 )}
 
                                                 <button
-                                                    className="mt-3 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-4 rounded shadow"
+                                                    className="mt-3 w-full bg-[#0071dc] hover:bg-[#0010bf] text-white font-bold py-3 px-4 rounded-full shadow transition-colors duration-200"
                                                     onClick={() =>
                                                         addToCart({
                                                             id: product.productId,
@@ -194,6 +194,7 @@ const SearchPageContent  = () => {
                                                 >
                                                     Add to cart
                                                 </button>
+
                                             </div>
                                         </div>
                                     ))}
@@ -242,11 +243,11 @@ const SearchPageContent  = () => {
 };
 
 export default function SearchPage() {
-  return (
-    <Suspense fallback={<LoadingSpinner />}>
-      <SearchPageContent />
-    </Suspense>
-  );
+    return (
+        <Suspense fallback={<LoadingSpinner />}>
+            <SearchPageContent />
+        </Suspense>
+    );
 }
 
 const Filters = ({ sortBy, setSortBy }) => (
