@@ -1,16 +1,12 @@
-# ♻️ Theme: Sustainable Shopping Experience
+# ♻️ Theme: Creating a sustainable future
 
-**Amazon HackOn-S5 | Team CLUE CREW — NIT Jamshedpur**
+**Walmart Sparkathon | Team CLUE CREW — NIT Jamshedpur**
 
 ---
 
 ## 1. 🖼️ Demo
 
-Deployed Link : https://amazon-app-gules.vercel.app/home
-
-Please refer to the attached PDF for a detailed demonstration of the prototype in action.
-
-**[📄 View the Working Prototype Demo (PDF) on Google Drive](https://drive.google.com/file/d/1VQgCOtPETcsS1JYC76N428RzUEkishtN/view?usp=sharing)**
+**Content to be uploaded**
 
 ---
 
@@ -134,10 +130,10 @@ src/
 ---
 
 ## 9. 👥 Team Members
-- Aditya Tiwari
+- Aditya Kumar
+- Ayush Kumar
 - Rohit Ratnam
 - Ujjwal Singh
-- Aditya Kumar
 
 ---
 
