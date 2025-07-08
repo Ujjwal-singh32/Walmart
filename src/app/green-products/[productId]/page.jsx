@@ -240,7 +240,7 @@ const ProductDetailsPage = () => {
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span>💰</span>
-                                    <span>5% Cashback on Amazon Pay</span>
+                                    <span>5% Cashback on Walmart Pay</span>
                                 </li>
                                 <li className="flex items-start gap-2">
                                     <span>📦</span>

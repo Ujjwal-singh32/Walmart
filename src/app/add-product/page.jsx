@@ -122,7 +122,7 @@ export default function AddProductPage() {
       <form onSubmit={handleSubmit} className="max-w-4xl mx-auto space-y-6">
         <div className="bg-white rounded-xl shadow-md p-6">
           <h2 className="text-xl font-semibold mb-1">Add New Product</h2>
-          <p className="text-sm text-gray-500 mb-4">Fill in the details below to list your product on Amazon</p>
+          <p className="text-sm text-gray-500 mb-4">Fill in the details below to list your product on Walmart</p>
 
           <div className="space-y-4">
             <input name="productId" type="text" className="w-full border p-2 rounded" value={form.productId} readOnly />

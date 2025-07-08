@@ -11,7 +11,7 @@ import axios from "axios";
 import { FaWallet } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-export default function AmazonCheckout() {
+export default function WalmartCheckout() {
   const router = useRouter();
   const { user } = useUser();
   const { cartItems, getTotalPrice } = useCart();
@@ -259,11 +259,11 @@ export default function AmazonCheckout() {
               </div>
             </div>
 
-            {/* Amazon Pay Balance */}
+            {/* Walmart Pay Balance */}
             <div className="bg-yellow-50 p-6 rounded-lg shadow-sm border border-yellow-200 flex items-center gap-4 mt-6">
               <FaWallet className="text-yellow-500 text-2xl" />
               <div className="flex-1">
-                <div className="font-semibold text-yellow-800">Amazon Pay Balance</div>
+                <div className="font-semibold text-yellow-800">Walmart Pay Balance</div>
                 <div className="text-sm text-yellow-700">Available: <span className="font-bold">{walletPoints} Points</span></div>
               </div>
               <label className="flex items-center gap-2 cursor-pointer">
@@ -276,7 +276,7 @@ export default function AmazonCheckout() {
                   }}
                   className="accent-yellow-500 w-5 h-5"
                 />
-                <span className="text-sm font-medium text-yellow-900">Use Amazon Pay</span>
+                <span className="text-sm font-medium text-yellow-900">Use Walmart Pay</span>
               </label>
             </div>
           </div>
@@ -304,7 +304,7 @@ export default function AmazonCheckout() {
                   <div className="flex justify-between">Packaging: <span>${summary.packaging.price}</span></div>
                   <div className="flex justify-between text-green-700">Discount: <span>- ${summary.discount.toFixed(2)}</span></div>
                   {useWallet && walletUsed > 0 && (
-                    <div className="flex justify-between text-blue-700 font-medium">Amazon Pay Used: <span>- ${walletUsed}</span></div>
+                    <div className="flex justify-between text-blue-700 font-medium">Walmart Pay Used: <span>- ${walletUsed}</span></div>
                   )}
                   <div className="border-t pt-2 font-bold flex justify-between text-lg text-red-600">
                     <span>Total:</span>

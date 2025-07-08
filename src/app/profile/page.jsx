@@ -28,7 +28,7 @@ const CustomTooltip = ({ active, payload, label, unit = "" }) => {
   return null;
 };
 
-export default function AmazonDashboard() {
+export default function WalmartDashboard() {
   const { user } = useUser();
   const router = useRouter();
   const [userData, setUserData] = useState(null);
