@@ -359,7 +359,7 @@ const  OrderTrackingfunc = () =>{
               <h3 className="font-semibold text-lg mb-1">🎉 Congrats!</h3>
               <p>
                 You have saved <span className="font-bold text-green-700">${Number(orderData.discount).toFixed(2)}</span> on this group order.
-                It has been added to your Amazon Pay Wallet.
+                It has been added to your Walmart Pay Wallet.
               </p>
             </div>
          )}    

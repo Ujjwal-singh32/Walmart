@@ -54,7 +54,7 @@ export default function WalletPage() {
       <div className="bg-gray-100 min-h-[80vh] pb-10">
         <div className="max-w-3xl mx-auto pt-8 space-y-8">
           {/* Header */}
-          <h1 className="text-3xl font-semibold text-black tracking-tight mb-2">Amazon Pay</h1>
+          <h1 className="text-3xl font-semibold text-black tracking-tight mb-2">Walmart Pay</h1>
 
           {/* Wallet Card */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 bg-gradient-to-br from-yellow-200 to-green-100 rounded-xl shadow p-6 border border-yellow-200">
@@ -63,7 +63,7 @@ export default function WalletPage() {
                 <FaWallet className="text-yellow-500 text-2xl" />
               </div>
               <div>
-                <div className="text-base font-medium">Amazon Pay Balance</div>
+                <div className="text-base font-medium">Walmart Pay Balance</div>
                 <div className="text-2xl font-bold flex items-end gap-1">{walletPoints} <span className="text-sm mb-1">Points</span></div>
               </div>
             </div>

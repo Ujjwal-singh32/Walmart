@@ -21,7 +21,7 @@ import { useRouter } from "next/navigation";
 import { useCart } from "@/context/cartContext";
 import Image from "next/image";
 
-export default function AmazonCart() {
+export default function WalmartCart() {
   const router = useRouter();
   const {
     cartItems,
