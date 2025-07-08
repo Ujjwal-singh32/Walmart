@@ -59,13 +59,14 @@ const GoGreenComponent = ({ onComplete }) => {
   const CurrentIcon = quotes[currentQuote].icon;
 
   return (
-    <div className="relative w-full h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 overflow-hidden">
+    <div className="relative w-full h-screen bg-gradient-to-br from-green-200 via-emerald-100 to-lime-200 overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-4 left-4 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-green-300 rounded-full animate-pulse"></div>
-        <div className="absolute top-16 right-8 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-emerald-400 rounded-full animate-bounce delay-300"></div>
-        <div className="absolute bottom-8 left-12 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-teal-300 rounded-full animate-pulse delay-500"></div>
-        <div className="absolute bottom-16 right-16 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-green-400 rounded-full animate-bounce delay-700"></div>
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-4 left-4 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-green-400 rounded-full animate-pulse"></div>
+        <div className="absolute top-24 right-12 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-emerald-500 rounded-full animate-bounce delay-300"></div>
+        <div className="absolute bottom-12 left-24 w-14 h-14 sm:w-20 sm:h-20 md:w-28 md:h-28 bg-lime-400 rounded-full animate-pulse delay-500"></div>
+        <div className="absolute bottom-24 right-24 w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-green-500 rounded-full animate-bounce delay-700"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-gradient-radial from-green-300/60 to-transparent rounded-full -translate-x-1/2 -translate-y-1/2 blur-2xl"></div>
       </div>
 
       {/* Floating leaves animation */}
@@ -81,18 +82,18 @@ const GoGreenComponent = ({ onComplete }) => {
         ))}
       </div>
 
-      {/* Amazon Logo */}
-      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center space-x-2">
-        <div className="bg-gradient-to-r from-orange-400 to-yellow-400 p-2 sm:p-2 md:p-3 rounded-lg shadow-lg">
-          <span className="text-white font-bold text-sm sm:text-base md:text-lg">amazon</span>
+      {/* Walmart Logo - improved visibility */}
+      <div className="absolute top-4 left-4 sm:top-6 sm:left-6 flex items-center space-x-2 z-20">
+        <div className="bg-white bg-opacity-90 p-2 sm:p-2 md:p-3 rounded-lg shadow-xl border-2 border-blue-400 flex items-center">
+          <span className="text-blue-700 font-extrabold text-base sm:text-lg md:text-2xl tracking-wide drop-shadow">walmart</span>
         </div>
-        <div className="bg-green-600 p-2 sm:p-2 md:p-3 rounded-full shadow-lg animate-spin-slow">
-          <Recycle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-white" />
+        <div className="bg-gradient-to-br from-yellow-400 to-blue-400 p-2 sm:p-2 md:p-3 rounded-full shadow-lg animate-spin-slow border-2 border-white">
+          <Recycle className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white drop-shadow" />
         </div>
       </div>
 
       {/* Go Green Badge */}
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-gradient-to-r from-green-600 to-emerald-600 px-3 py-2 sm:px-4 sm:py-2 rounded-full shadow-lg">
+      <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-gradient-to-r from-green-700 to-emerald-500 px-3 py-2 sm:px-4 sm:py-2 rounded-full shadow-lg border-2 border-white z-20">
         <span className="text-white font-semibold text-xs sm:text-sm flex items-center">
           <Leaf className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
           GO GREEN
@@ -111,13 +112,13 @@ const GoGreenComponent = ({ onComplete }) => {
 
         {/* Quote content */}
         <div className={`transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 sm:mb-4 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-            🌱 Go Green with Amazon
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-blue-600 to-yellow-400 bg-clip-text text-transparent">
+            🌱 Go Green with Walmart
           </h2>
           <blockquote className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 italic mb-2 sm:mb-3 max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl leading-relaxed px-2">
             "{quotes[currentQuote].text}"
           </blockquote>
-          <cite className="text-xs sm:text-sm md:text-base text-green-600 font-medium">
+          <cite className="text-xs sm:text-sm md:text-base text-blue-600 font-medium">
             — {quotes[currentQuote].author}
           </cite>
         </div>
