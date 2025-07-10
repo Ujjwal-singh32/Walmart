@@ -6,7 +6,7 @@
 
 ## 1. 🖼️ Demo
 
-**[https://youtu.be/gTszdZe888A]**
+**https://youtu.be/gTszdZe888A**
 
 ---
 
