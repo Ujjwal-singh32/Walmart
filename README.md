@@ -4,13 +4,7 @@
 
 ---
 
-## 1. 🖼️ Demo
-
-**https://youtu.be/gTszdZe888A**
-
----
-
-## 2. 🚩 Problem Statement
+## 1. 🚩 Problem Statement
 Eco-conscious shoppers face real barriers:
 - Scattered sustainable options across platforms
 - Lack of trust due to greenwashing and unclear certifications
@@ -19,7 +13,7 @@ Eco-conscious shoppers face real barriers:
 
 ---
 
-## 3. 💡 Solution Overview
+## 2. 💡 Solution Overview
 We developed a one-stop, AI-powered platform for sustainable shopping. where in we:
 - Centralized verified eco-friendly products
 - Offered transparent eco-grading and impact stats
@@ -28,7 +22,7 @@ We developed a one-stop, AI-powered platform for sustainable shopping. where in 
 
 ---
 
-## 4. 🌟 Key Features
+## 3. 🌟 Key Features
 ### AI-Driven Discovery
 - Smart search and filter for green/organic products
 - Eco-scores and badges for verified sustainable products
@@ -62,7 +56,7 @@ We developed a one-stop, AI-powered platform for sustainable shopping. where in 
 
 ---
 
-## 5. 🛒 User Journey Walkthrough
+## 4. 🛒 User Journey Walkthrough
 1. **Discover:**
    - AI suggests eco-products based on the user's search
    - Browse GreenKart for verified sustainable options
@@ -82,7 +76,7 @@ We developed a one-stop, AI-powered platform for sustainable shopping. where in 
 
 ---
 
-## 6. 📊 Impact & Metrics (Futuristic)
+## 5. 📊 Impact & Metrics (Futuristic)
 - 🚚 45% less CO₂ in last-mile delivery (group buying)
 - ♻ 2kg plastic saved per user/month (eco-packaging)
 - 📈 2.5x more eco-decisions (impact tracking & rewards)
@@ -90,7 +84,7 @@ We developed a one-stop, AI-powered platform for sustainable shopping. where in 
 
 ---
 
-## 7. 🏗️ Tech Stack & Architecture
+## 6. 🏗️ Tech Stack & Architecture
 - **Frontend:** Next.js 15, React 19, Tailwind CSS, Recharts
 - **Backend:** Next.js API Routes, Node.js, MongoDB
 - **Auth:** Clerk
@@ -121,7 +115,7 @@ src/
 
 ---
 
-## 8. 🚀 Towards Scalibility
+## 7. 🚀 Towards Scalibility
 - **Marketplace Expansion:** Electronics, fashion, home goods, and more
 - **Smarter AI:** Multilingual, context-aware, always learning
 - **Carbon Offsetting:** Real-time tracking and offset at checkout
@@ -129,16 +123,12 @@ src/
 
 ---
 
-## 9. 👥 Team Members
+## 8. 👥 Team Members
 - Aditya Kumar
 - Ayush Kumar
 - Rohit Ratnam
 - Ujjwal Singh
 
 ---
-
-## 10. 🌍 Join the Movement
-Empowering users to shop smart, green, and together.  
-Let’s make sustainability the easiest—and most rewarding—choice.
 
 > _"Every green purchase plants a better future."_
