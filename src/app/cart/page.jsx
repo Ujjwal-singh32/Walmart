@@ -38,8 +38,8 @@ export default function WalmartCart() {
   const [gpts, setGpts] = useState(150);
   const packagingOptions = {
     minimal: { price: 0, points: 0 },
-    compostable: { price: 25, points: 100 },
-    reusable: { price: 30, points: 150 },
+    compostable: { price: .30, points: 100 },
+    reusable: { price: .40, points: 150 },
   };
 
 
@@ -53,8 +53,8 @@ export default function WalmartCart() {
     return null;
   }
   const itemsTotal = getTotalPrice();
-  const shipping = 100;
-  const discount = 15;
+  const shipping = 0.50;
+  const discount = 0.30;
   const packagingPrice = packagingOptions[packaging].price;
   const getOrderTotal = () => {
 
